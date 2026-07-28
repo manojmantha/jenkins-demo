@@ -26,7 +26,7 @@ pipeline {
 
         stage('Verify Kubernetes Cluster') {
             steps {
-                // sh 'kubectl get nodes'
+                bat 'kubectl get nodes'
                 // sh 'which kubectl'
                 echo "Verify K8S done"
             }
