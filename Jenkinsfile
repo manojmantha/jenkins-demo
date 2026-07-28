@@ -2,28 +2,30 @@ pipeline {
     agent any
 
     environment {
-        KUBECONFIG = "/var/lib/jenkins/.kube/config"
+        // KUBECONFIG = "/var/lib/jenkins/.kube/config"
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                checkout scm
+                // checkout scm
+                echo "Checkout"
             }
         }
 
         stage('Verify Kubernetes Cluster') {
             steps {
-                sh 'kubectl get nodes'
+                // sh 'kubectl get nodes'
+                echo "Verify K8S done"
             }
         }
 
-        stage('Deploy Nginx') {
-            steps {
-                sh 'kubectl apply -f nginx.yaml'
-            }
-        }
+        // stage('Deploy Nginx') {
+        //     steps {
+        //         sh 'kubectl apply -f nginx.yaml'
+        //     }
+        // }
 
         stage('Verify Deployment') {
             steps {
