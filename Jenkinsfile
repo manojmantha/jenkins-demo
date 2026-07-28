@@ -7,6 +7,16 @@ pipeline {
 
     stages {
 
+        stage('Check kubectl') {
+    steps {
+        bat '''
+        echo %PATH%
+        where kubectl
+        kubectl version --client
+        '''
+    }
+}
+
         stage('Checkout') {
             steps {
                 // checkout scm
@@ -17,7 +27,7 @@ pipeline {
         stage('Verify Kubernetes Cluster') {
             steps {
                 // sh 'kubectl get nodes'
-                sh 'which kubectl'
+                // sh 'which kubectl'
                 echo "Verify K8S done"
             }
         }
