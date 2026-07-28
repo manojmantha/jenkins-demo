@@ -48,7 +48,7 @@ pipeline {
         }
 
         always {
-            sh 'kubectl get all'
+            echo 'kubectl get all'
         }
     }
 }
